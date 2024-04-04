@@ -1,11 +1,7 @@
 use std::collections::HashMap;
 
-#[derive(Clone)]
-enum Types {
-    Text(String),
-    List(Vec<Option<Types>>)
-}
-
+mod types;
+use crate::types::Types;
 
 fn main() {
     let mut data_store: HashMap<String, Types> = HashMap::new();
