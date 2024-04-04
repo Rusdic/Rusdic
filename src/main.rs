@@ -1,20 +1,20 @@
 use std::collections::HashMap;
 
+#[derive(Clone)]
 enum Types {
     Text(String),
     List(Vec<Option<Types>>)
 }
 
 
-
 fn main() {
     let mut data_store: HashMap<String, Types> = HashMap::new();
 
-    data_store.insert(String::from("Test"), Types::Text(String::from("This is some data.")));
+    data_store.insert(String::from("Test"), Types::Text("This is some data.".to_string()));
 
-    let vec = vec![Option::Some(Types::Text(String::from("This"))), Option::Some(Types::Text(String::from("Is"))), Option::Some(Types::Text(String::from("Data")))];
+    let vec = create_list_strings(vec!["This", "Is", "Data"]);
 
-    data_store.insert(String::from("ListTest"), Types::List(vec));
+    data_store.insert("ListTest".to_string(), vec);
 
     print!("Test: ");
     print_data(data_store.get(&String::from("Test")));
@@ -25,6 +25,17 @@ fn main() {
     
 }
 
+fn create_list_strings(data: Vec<&str>) -> Types{
+    let mut vec = vec![Option::Some(Types::Text("".to_string()));data.len()];
+
+    for i in 0..data.len(){
+        vec[i] = Option::Some(Types::Text(data[i].to_string()));
+    }
+
+    let out = Types::List(vec);
+
+    return out;
+}
 
 fn print_data(data: Option<&Types>){
     match data {
