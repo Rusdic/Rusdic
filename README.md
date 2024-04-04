@@ -1,4 +1,4 @@
-![Rusdic](Rusdic.png)
+![Rusdic](Rusdic_Banner.png)
 # What is Rusdic?
 Rusdic is a Rust based in memory remote dictionary server that is designed to be fast and simple.
 
