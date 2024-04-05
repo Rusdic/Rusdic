@@ -1,8 +1,8 @@
 mod types;
-pub use crate::types::Types;
+use types::Types;
 
 mod datastore;
-pub use crate::datastore::DataStore;
+use datastore::DataStore;
 
 
 fn main() {
