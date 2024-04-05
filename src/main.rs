@@ -1,22 +1,24 @@
-use std::collections::HashMap;
-
 mod types;
-use crate::types::Types;
+pub use crate::types::Types;
+
+mod datastore;
+pub use crate::datastore::DataStore;
+
 
 fn main() {
-    let mut data_store: HashMap<String, Types> = HashMap::new();
+    let mut data_store: DataStore = DataStore::new();
 
-    data_store.insert(String::from("Test"), Types::Text("This is some data.".to_string()));
+    data_store.set("Test", Types::Text("This is some data.".to_string()));
 
     let vec = create_list_strings(vec!["This", "Is", "Data"]);
 
-    data_store.insert("ListTest".to_string(), vec);
+    data_store.set("ListTest", vec);
 
     print!("Test: ");
-    print_data(data_store.get(&String::from("Test")));
+    print_data(data_store.get("Test"));
     println!();
     print!("ListTest: ");
-    print_data(data_store.get(&String::from("ListTest")));
+    print_data(data_store.get("ListTest"));
     println!();
     
 }
