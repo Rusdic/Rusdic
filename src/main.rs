@@ -1,14 +1,10 @@
 mod types;
-
 use types::Types;
 use types::KeyValue;
 use types::print_data;
 
 mod datastore;
 use datastore::DataStore;
-
-
-
 
 fn main() {
     let mut data_store: DataStore = DataStore::new();
@@ -19,10 +15,7 @@ fn main() {
 
     data_store.set("ListTest", list);
 
-
     data_store.set("Joe", Types::Json(vec![Option::Some(KeyValue { key: "Name".to_string(), value: Option::Some(Types::Text("Joe".to_string()))})]));
-
-
 
     print!("Test: ");
     print_data(data_store.get("Test"));
@@ -32,7 +25,6 @@ fn main() {
     println!();
     print!("Joe: ");
     print_data(data_store.get("Joe"));
-    
 }
 
 fn create_list_strings(data: Vec<&str>) -> Types{

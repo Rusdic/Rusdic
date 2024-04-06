@@ -20,8 +20,11 @@ pub fn print_data(data: Option<&Types>){
                 },
                 Types::List(out) => {
                     print!("[ ");
+
                     for i in 0..out.len(){
+
                         print_data(out[i].as_ref());
+
                         if i != out.len() - 1 {
                             print!(", ");
                         }
@@ -30,10 +33,12 @@ pub fn print_data(data: Option<&Types>){
                 },
                 Types::Json(data) => {
                     print!("{{ ");
+
                     for i in 0..data.len(){
                         match &data[i] {
                             Some(j) => {
                                 print!("{}: ", j.key);
+                                
                                 print_data(j.value.as_ref())
                             },
                             None => {
