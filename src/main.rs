@@ -25,6 +25,7 @@ fn main() {
     println!();
     print!("Joe: ");
     print_data(data_store.get("Joe"));
+
 }
 
 fn create_list_strings(data: Vec<&str>) -> Types{

@@ -38,7 +38,7 @@ pub fn print_data(data: Option<&Types>){
                         match &data[i] {
                             Some(j) => {
                                 print!("{}: ", j.key);
-                                
+
                                 print_data(j.value.as_ref())
                             },
                             None => {
