@@ -11,6 +11,10 @@ pub struct KeyValue {
     pub value: Option<Types>
 }
 
+fn string_to_json(text: String) -> Option<Types> {
+    return Option::None;
+}
+
 pub fn print_data(data: Option<&Types>){
     match data {
         Some(i) => {
