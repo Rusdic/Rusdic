@@ -1,11 +1,7 @@
-mod types;
-use types::Types;
-use types::KeyValue;
-use types::print_data;
-
 mod command_parser;
-
+mod types;
 mod datastore;
+
 use datastore::DataStore;
 
 fn main() {
