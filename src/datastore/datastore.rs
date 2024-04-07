@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use crate::types::types::Types;
+use crate::types::Types;
 
 pub struct DataStore {
     store: HashMap<String, Types>
