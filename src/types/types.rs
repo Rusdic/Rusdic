@@ -10,6 +10,7 @@ pub enum Types {
     Set(HashSet<String>),
     Hash(HashMap<String, String>),
     SortedSet(BTreeSet<String>),
+    // Json will come soon.
 }
 
 /// A struct for a key value of a String and a Type.
@@ -20,8 +21,6 @@ pub struct KeyValue {
 }
 
 /// Prints the given type.
-///
-/// It does require the Type to be in an Option enum to allow for null types.
 pub fn print_data(data: Types) {
     match data {
         Types::String(out) => {
