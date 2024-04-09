@@ -4,7 +4,6 @@ use crate::types::Types;
 
 /// Parses the command that is given and applies it to the given DataStore.
 pub fn parse(mut raw: &str, store: &mut DataStore) {
-    raw = raw.trim();
 
     // Removes trailing ';' if present since its not needed.
     if raw.ends_with(';') {
@@ -12,7 +11,8 @@ pub fn parse(mut raw: &str, store: &mut DataStore) {
     }
 
     for line in raw.split(';') {
-        run_command(line, store);
+        let temp = line.trim();
+        run_command(temp, store);
     }
 }
 
